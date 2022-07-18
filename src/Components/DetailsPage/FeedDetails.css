@@ -2,6 +2,7 @@
     display: flex;
     margin: auto;
     text-align: center;
+    /* border: 1px solid red; */
 }
 .leftDiv{
     width: 79px;
@@ -10,6 +11,7 @@
     width: 1030px;
     text-align: center;
     border-right: 1px solid #D8D2CB;
+   
 }
 .rightDiv{
     width: 500px;

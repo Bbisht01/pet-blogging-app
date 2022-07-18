@@ -1,3 +1,7 @@
+.MainCommentOuterDiv{
+    height:1090px;
+    border-right: .8px  #D8D2CB;
+}
 .comment-div{
     /* border: 1px solid red; */
     width: 70%;
@@ -40,6 +44,19 @@
     margin: auto;
     text-align: left;
     height: 30px;
+    margin-left: 16%;
    
     
+}
+.LikeButtonForComment{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid grey;
+    
+    /* border: 1px solid red; */
+}
+.commentHead{
+    margin-bottom: 25px;
+    color: grey;
 }

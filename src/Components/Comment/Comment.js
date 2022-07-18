@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
 import "./Comment.css"
-// import ToggleLike from "./ToggleLike";
 import axios from 'axios';
-import ToggleLike from "./ToggleLike";
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder'
+import {red} from '@mui/material/colors'
+import Checkbox from '@mui/material/Checkbox';
+import Favorite from '@mui/icons-material/Favorite';
+
 
 const doRemoveWhiteSpace = str => str.replace(/\s{3,}/g, " ");
 //Functional component - useFocus hook
@@ -44,7 +47,7 @@ export const CommentComponent = ({id, commentArr}) => {
 
 
   return (
-    <>
+    <div className="MainCommentOuterDiv">
     <div className="comment-div">
       <textarea
         placeholder={"Add a comment"}
@@ -63,12 +66,13 @@ export const CommentComponent = ({id, commentArr}) => {
      
     </div>
     <div className="commentShowDiv">
+      <h5 className="commentHead">Comments</h5>
       {
         commentData.map((comment)=>{
           return(
             <>
             <p style={{fontWeight:"bold",fontSize:"12px"}}>{comment.author}</p>
-            <p>{comment.comment} <ToggleLike/></p>
+            <p className="LikeButtonForComment">{comment.comment}  <Checkbox  icon={<FavoriteBorder sx = {{color: red[500]}} />} checkedIcon={<Favorite sx = {{color: red[500]}}/>} /></p>         
          
             </>
           )
@@ -76,6 +80,6 @@ export const CommentComponent = ({id, commentArr}) => {
       }
 
     </div>
-    </>
+    </div>
   );
 };
