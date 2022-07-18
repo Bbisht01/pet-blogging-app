@@ -34,3 +34,12 @@
     cursor: pointer;
     /* border: 1px solid red; */
 }
+.commentShowDiv{
+    /* border:1px solid red; */
+    width: 70%;
+    margin: auto;
+    text-align: left;
+    height: 30px;
+   
+    
+}
