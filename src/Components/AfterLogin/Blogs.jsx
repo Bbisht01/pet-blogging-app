@@ -123,6 +123,7 @@ export default function Blogs()
                     <div className="time">
                       <p>{e.reading_time} </p>
                       <p className="theTag">{e.tag}</p>
+                     
                     </div>
                     <div className="LikeButton">
                       <button onClick={() => handleLikeButton(e)}>
@@ -169,6 +170,7 @@ export default function Blogs()
                     <div className="time">
                       <p>{e.reading_time} </p>
                       <p className="theTag">{e.tag}</p>
+                      
                     </div>
                     <div className="LikeButton">
                       <button onClick={() => handleLikeButton(e)}>

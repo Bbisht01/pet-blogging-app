@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 // import { useHistory} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { CommentComponent } from "../Comment/Comment";
 
 
 export const ShowFeed = () => {
@@ -23,7 +24,7 @@ export const ShowFeed = () => {
 
   
   const filteredData = homeData.filter((el) => el.id === feedId);
-  // console.log(filteredData);
+   console.log(filteredData);
 
 
 
@@ -58,13 +59,11 @@ export const ShowFeed = () => {
 
         <div className="imgDiv">
           <div className="commentDiv">
-            <span>
-              <img
-                src="https://www.pngitem.com/pimgs/m/21-212930_transparent-square-speech-bubble-png-transparent-instagram-comment.png"
-                alt=""
-              />
-            </span>           
+                     
             
+          </div>
+          <div>
+          
           </div>
           <div className="socialIcons">
             <img
@@ -84,12 +83,7 @@ export const ShowFeed = () => {
               alt=""
             />
 
-            <button >
-              <img
-                src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-delete-vector-icon-png-image_4236653.jpg"
-                alt=""
-              />
-            </button>
+           
 
          
           </div>
@@ -99,8 +93,8 @@ export const ShowFeed = () => {
           <p>More from {filteredData[0].author}</p>
         </div>
         <div className="bottomText">
-          Love podcasts or audiobooks? Learn on the go with our new app.{" "}
-          <button>Try knowable</button>
+         
+         <CommentComponent id={filteredData[0].id} commentArr={filteredData[0].comment} />
         </div>
       </div>
      

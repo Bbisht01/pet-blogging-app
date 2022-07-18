@@ -30,8 +30,7 @@ export default function Collection() {
               <p>{ele.post}</p>
               <div style={{width:"50%",height:"200px",marginBottom:"20px"}}>
               <img src={ele.image} width="100%" height="100%"/>
-              </div>
-              {/* <button type="button" id='deleteButton' ><IoTrash/></button> */}
+              </div>              
               </div>
             )
           })
