@@ -4,7 +4,7 @@ import { loggedInData } from "../../Redux/Action";
 import { useTranslation } from "react-i18next";
 import "../../i18n/i18n";
 import "./Navbar.css";
-// import { IoHomeOutline } from "react-icons/io5";
+
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -14,13 +14,14 @@ export default function Navbar() {
     i18n.changeLanguage(languageValue);
   };
 
-  // const navigate = useNavigate()
+  
   const dispatch = useDispatch();
   const [loggedIn, setloggedIn] = useState(false);
 
   const { loggedUser } = useSelector((state) => state);
+  
   useEffect(() => {
-    console.log(loggedUser, "navbar");
+   
     // state in logged user was showing array and sometime object so im checking whether the user is logged or not
     if (loggedUser.constructor === Array) {
       if (loggedUser.length != 0) setloggedIn(true);
@@ -42,15 +43,15 @@ export default function Navbar() {
         style={{ marginLeft: "5%", fontWeight: "bold" }}
       >
         <img
-          src="https://see.fontimg.com/api/renderfont4/XPZZ/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/cGV0IGd1aWRl/stylish-calligraphy-demo.png"
+          src="https://see.fontimg.com/api/renderfont4/dE0g/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/cGV0IGd1aWRl/beautiful-people-personal-use.png"
           width="70%"
         />
       </a>
 
       <div
-        class="ml-6 float-right"
+        class="ml-7 float-right"
         id="navbarSupportedContent "
-        style={{ marginLeft: "30%" }}
+        style={{ marginLeft: "35%" }}
       >
         <ul class="navbar-nav">
           <li class="nav-item active">

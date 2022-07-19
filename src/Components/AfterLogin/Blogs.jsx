@@ -8,7 +8,6 @@ import "./Blogs.css";
 import { FilterTag } from "./FilterTags";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoHeartOutline } from "react-icons/io5";
-import { updateLikes } from "../../Redux/Action";
 
 export default function Blogs() 
 {
@@ -40,19 +39,19 @@ export default function Blogs()
   }
 
   const dataForHomePage = useSelector((state) => state.homeData);
-  // console.log(dataForHomePage)
+
 
   const getTag = useSelector((state) => state.filterTag);
-  // console.log(getTag,"the tag")
+
 
   const FilteredTag = dataForHomePage.filter((e) => e.tag == getTag);
-  // console.log(FilteredTag,"filtered tag")
+
 
   function IndividualClick(e) 
   {
-    // console.log(e.title,"id")
+    
     const action = IndividualPage(e.id);
-    // console.log(action,"this is action")
+
     dispatch(action);
     navigate("/showFeed");
   }
@@ -79,7 +78,7 @@ export default function Blogs()
 
 
   var lstoragedata = JSON.parse(localStorage.getItem("dataForlikebutton"));      
-  // console.log(lstoragedata)
+
   
 
   return getTag == "" ? (
@@ -180,11 +179,11 @@ export default function Blogs()
                       {/* <Likes /> */}
                     </div>
                   </div>
-                  {/* <hr id="hr_line_1"></hr> */}
+                  
                 </div>
                 <div className="feed_right">
                   <img src={e.urlToImage} />
-                  {/* <hr id="hr_line_2"></hr> */}
+                  
                 </div>
               </div>
             );
@@ -242,11 +241,11 @@ export default function Blogs()
                     {/* <Likes/> */}
                   </div>
                 </div>
-                {/* <hr id="hr_line_1"></hr> */}
+               
               </div>
               <div className="feed_right">
                 <img src={e.urlToImage} />
-                {/* <hr id="hr_line_2"></hr> */}
+            
               </div>
             </div>
           );

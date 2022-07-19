@@ -1,30 +1,44 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import "./Blogs.css"
 import { useDispatch,useSelector } from 'react-redux'
 import { FilterTags } from '../../Redux/Action'
 import { useTranslation } from 'react-i18next'
+import axios from "axios"
+
 
 export const FilterTag = ()=>{  
   
   const {t} = useTranslation()
-
+  const [tags, setTagData] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(-1);
   const dispatch = useDispatch()
-  const inputRef = useRef(null)
+  const inputRef = useRef([])
+  var count=0;
+  function getData(){
+    axios
+      .get("http://localhost:5000/display_feeds")
+      .then((res) => {
+        var temp = tags;
+        res.data.map((el, i) =>{
+          temp.push(...el.tag)
+        })
+        var obj = {}
+        for(var x of temp)
+          obj[x] = 1;
+        console.log(obj);
+        var arr = Object.keys(obj)
+        setTagData(arr);
+      });
+  }
+  useEffect(() => {
+    count=0
+    getData()
+  }, []);
   
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/display_feeds")
-  //     .then((res) => setTagData(res.data));
-  // }, []);
-  
+
   function handleTag(tag){
-    console.log(inputRef)
     dispatch(FilterTags(tag))
-    // console.log(tag)
-   
-      //  inputRef.current.style.backgroundColor="red"
-    //   inputRef.current.style.color="white"
-    // }
+    
   }
   // e.target.style.background="red"
 
@@ -33,33 +47,25 @@ export const FilterTag = ()=>{
         <div className="recommended_topics">
            <p>{t("SearchTopics")}</p>
            <div className="various_tags">
-              <div>
-                <p onClick={(e)=>handleTag("Dogs")} ref = {inputRef} className="makeActive1">{t("Dogs")}</p>
-                <p onClick={(e)=>                  
-                  handleTag("Cats")}  ref = {inputRef}  className="makeActive2">{t("Cats")}</p>
-                <p onClick={()=>handleTag("Cat Food")}  ref = {inputRef} className="makeActive3">{t("CatFood")}</p>
-              </div>
-              <div>
-                <p onClick={()=>handleTag("Rabbit")} >{t("Rabbit")}</p>
-                <p onClick={()=>handleTag("Heatstroke")}>{t("Heatstroke")}</p>
-                <p onClick={()=>handleTag("Nature")}>{t("Nature")}</p>
-              </div>
-              <div>
-                <p onClick={()=>handleTag("tortise-care")}>{t("Tortisecare")}</p>
-                <p onClick={()=>handleTag("Parrots")}>{t("Parrots")}</p>
-                <p onClick={()=>handleTag("Birds")}>{t("Birds")}</p>
-              </div>
-              <div>
-                <p onClick={()=>handleTag("northernparrots")}>{t("northernparrots")}</p>
-                <p onClick={()=>handleTag("Horse")}>{t("Horse")}</p>
-               
-              </div>
-              <div>
-              <p onClick={()=>handleTag("Wild Birds")}>{t("WildBirds")}</p>
-                <p onClick={()=>handleTag("Fish")}>{t("Fish")}</p>
-                <p onClick={()=>handleTag("Gold Fish")}>{t("GoldFishs")}</p>
-              </div>
-              
+            {
+            tags.map((el, i)=>
+              <p style={{backgroundColor:selectedTag==i? "black":"white", color:selectedTag==i? "white":"black" }} onClick={(e)=>{
+                if(i==selectedTag)
+                {
+                  setSelectedTag(-1)
+                  handleTag("");
+                } 
+                else
+                {
+                  setSelectedTag(i);
+                  handleTag(el)
+                }
+                
+                
+              }
+              } className="makeActive1">{el}</p>
+            )}
+             
 
            </div>
            

@@ -33,7 +33,7 @@ export const CommentComponent = ({id, commentArr}) => {
     onSubmit = () => {
       console.log(id,"commentId");
       var commentText = doRemoveWhiteSpace(inputRef.current.value);
-      commentArr = commentArr==undefined ?  [commentText]:[...commentArr,commentText] 
+       commentArr = commentArr==undefined ?  [commentText]:[...commentArr,commentText] 
       axios
         .patch(`http://localhost:5000/display_feeds/${id}`, {
             comment: commentArr,
@@ -72,8 +72,7 @@ export const CommentComponent = ({id, commentArr}) => {
           return(
             <>
             <p style={{fontWeight:"bold",fontSize:"12px"}}>{comment.author}</p>
-            <p className="LikeButtonForComment">{comment.comment}  <Checkbox  icon={<FavoriteBorder sx = {{color: red[500]}} />} checkedIcon={<Favorite sx = {{color: red[500]}}/>} /></p>         
-         
+            <p className="LikeButtonForComment">{comment.comment}  <Checkbox  icon={<FavoriteBorder sx = {{color: red[500]}} />} checkedIcon={<Favorite sx = {{color: red[500]}}/>} /></p>           
             </>
           )
         })

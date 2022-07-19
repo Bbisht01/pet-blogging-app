@@ -267,18 +267,17 @@
     /* border: 1px solid red; */
   }
   .various_tags{
+    width:100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
   }
-  .various_tags>div{
-     display: flex;
-  }
+
   .makeActive.active {
     background-color: black;
     color: white;
   }
   
-  .various_tags>div>p{
+  .various_tags>p{
     font-size: 0.9rem;
     font-weight: 500;
     padding: 0.5rem 1.1rem;
@@ -286,23 +285,22 @@
     margin: 0.3rem;
     border-radius: 1rem;
   }
-  .various_tags>div>p:hover{
+  .various_tags>p:hover{
     background-color: #292929;
     color: #f2f2f2;
     cursor: pointer;
   }
+
   .recommended_topics>p{
    font-size: 1.1rem;
    font-weight: 500;
   }
   .recommended_topics{
-    /* margin-left: 0.8rem; */
     margin-top:4%;
     position: fixed;
     left: 0;
     margin-left: 5%;
-    
-    /* border: 1px solid red; */
+    width:35%;
   }
   .reading_list{
     margin-top: 3rem;
